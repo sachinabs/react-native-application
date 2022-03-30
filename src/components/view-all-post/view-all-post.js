@@ -23,7 +23,7 @@ const ViewAllPost = ({ navigation }) => {
                         <View key={index}>
                             <Text style={ViewAllPostStyle.title}>{item.title}</Text>
                             <Text style={ViewAllPostStyle.body}>{item.content}</Text>
-                            <View style={ViewAllPostStyle.row}>
+                            <View key={index} style={ViewAllPostStyle.row}>
                                 <Text>Head : {item.head}</Text>
                                 <Text>Possition : {item.position}</Text>
                                 <Text>Tail : {item.tail}</Text>
