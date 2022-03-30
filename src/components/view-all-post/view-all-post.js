@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { View, Text, TouchableOpacity } from "react-native";
+import { View, Text, TouchableOpacity, ScrollView } from "react-native";
 import ViewAllPostStyle from "./view-all-post-styles/view-all-post-style";
 import axios from 'axios';
 const ViewAllPost = ({ navigation }) => {
@@ -14,12 +14,12 @@ const ViewAllPost = ({ navigation }) => {
                 console.log(err);
             })
     }, []);
-
+    // scrollView vertical
     return (
-        <View>
+        <ScrollView vertical={true} showsHorizontalScrollIndicator={false}>
             {listOfData.map((item, index) => {
                 return (
-                    <View style={ViewAllPostStyle.container}>
+                    <View key={index} style={ViewAllPostStyle.container}>
                         <View key={index}>
                             <Text style={ViewAllPostStyle.title}>{item.title}</Text>
                             <Text style={ViewAllPostStyle.body}>{item.content}</Text>
@@ -33,7 +33,7 @@ const ViewAllPost = ({ navigation }) => {
                 )
             }
             )}
-        </View>
+        </ScrollView>
     );
 }
 export default ViewAllPost;
